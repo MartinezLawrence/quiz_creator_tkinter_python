@@ -52,8 +52,8 @@ class QuizCreator:
         self.save_button = tk.Button(self.window, text="Save Question", command=self.save_question)
         self.save_button.pack()
 
-        # add button for "exit program"
-        self.exit_button = tk.Button(self.window, text="Exit", command=self.exit_program)
+        # add button for "exit program" 
+        self.exit_button = tk.Button(self.window, text="Exit", command=self.window.destroy)
         self.exit_button.pack()
 
 
@@ -92,8 +92,11 @@ class QuizCreator:
         else:
             messagebox.showerror("Error", "Please fill all fields and ensure the correct answer is one of a, b, c, or d.")
 
+    # mainloop function to keep the window open
+    def run(self):
+        self.window.mainloop()
 
-# this will close the program when the user clicks the exit button
-
-# fourth is the main loop
-    # this will run the program and keep it open until the user exits
+# fourth is the main function to run the program
+if __name__ == "__main__":
+    quiz_creator = QuizCreator()
+    quiz_creator.run()
