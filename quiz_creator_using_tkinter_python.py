@@ -26,3 +26,8 @@
     # display success message
         # after saving, display a success message to the user
 
+# third is exit program
+    # this will close the program when the user clicks the exit button
+
+# fourth is the main loop
+    # this will run the program and keep it open until the user exits
