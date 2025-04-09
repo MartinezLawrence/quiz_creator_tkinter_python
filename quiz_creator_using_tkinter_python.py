@@ -57,16 +57,34 @@ class QuizCreator:
         self.exit_button.pack()
 
 
-# second is save question function'
-    # this is where input validation occurs
-        # check if all fields are filled out
-        # check if the correct answer is one of the options
+# second is save question function
+# check if all fields are filled and choices are in a, b, c, d
+def save_question(self):
+    question = self.question_entry.get("1.0", tk.END).strip()
+    answer_a = self.answer_a_entry.get()
+    answer_b = self.answer_b_entry.get()
+    answer_c = self.answer_c_entry.get()
+    answer_d = self.answer_d_entry.get()
+    correct_answer = self.correct_answer_entry.get().lower()
+    
 
-    # save data
-        # if input is valid, save the question and answers to a file 
+    
+    # if input is valid, save the question and answers to a file
+    if question and answer_a and answer_b and answer_c and answer_d and correct_answer in ['a', 'b', 'c', 'd']: 
+        with open("quiz.txt", "a") as file:
+            file.write(f"Question: {question}\n")
+            file.write(f"A: {answer_a}\n")
+            file.write(f"B: {answer_b}\n")
+            file.write(f"C: {answer_c}\n")
+            file.write(f"D: {answer_d}\n")
+            file.write(f"Correct Answer: {correct_answer}\n\n")
 
-    # clear fields
-        # after saving, clear all fields for the next question
+    # after saving, clear all fields for the next question
+    self.question_entry.delete("1.0", tk.END)
+    self.answer_a_entry.delete(0, tk.END)
+    self.answer_b_entry.delete(0, tk.END)
+    self.answer_c_entry.delete(0, tk.END)
+    self.answer_d_entry.delete(0, tk.END)
 
     # display success message
         # after saving, display a success message to the user
