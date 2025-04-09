@@ -48,7 +48,14 @@ class QuizCreator:
         self.correct_answer_entry = tk.Entry(self.window, width=10)
         self.correct_answer_entry.pack()
         
-    # add buttons for "save" "question" and "exit"
+        # add buttons for "save question" 
+        self.save_button = tk.Button(self.window, text="Save Question", command=self.save_question)
+        self.save_button.pack()
+
+        # add button for "exit program"
+        self.exit_button = tk.Button(self.window, text="Exit", command=self.exit_program)
+        self.exit_button.pack()
+
 
 # second is save question function'
     # this is where input validation occurs
