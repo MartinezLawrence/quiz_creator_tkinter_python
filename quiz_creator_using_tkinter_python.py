@@ -19,10 +19,35 @@ class QuizCreator:
         self.question_entry.pack()
 
         # answer A
+        self.aswer_a_label = tk.Label(self.window, text="Answer A: ")
+        self.aswer_a_label.pack()
+        self.question_entry = tk.Text(self.window, height=5, width=50)
+        self.question_entry.pack()
+
         # answer B
+        self.answer_b_label = tk.Label(self.window, text="Answer B: ")
+        self.answer_b_label.pack()
+        self.answer_b_entry = tk.Text(self.window, height=5, width=50)
+        self.answer_b_entry.pack()
+
         # answer C
+        self.answer_c_label = tk.Label(self.window, text="Answer C: ")
+        self.answer_c_label.pack()
+        self.answer_c_entry = tk.Text(self.window, height=5, width=50)
+        self.answer_c_entry.pack()
+
         # answer D
+        self.answer_d_label = tk.Label(self.window, text="Answer D: ")
+        self.answer_d_label.pack()
+        self.answer_d_entry = tk.Text(self.window, height=5, width=50)
+        self.answer_d_entry.pack()
+
         # correct answer
+        self.correct_answer_label = tk.Label(self.window, text="Correct Answer (a, b, c, d): ")
+        self.correct_answer_label.pack()
+        self.correct_answer_entry = tk.Entry(self.window, width=10)
+        self.correct_answer_entry.pack()
+        
     # add buttons for "save" "question" and "exit"
 
 # second is save question function'
