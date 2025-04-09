@@ -79,15 +79,18 @@ def save_question(self):
             file.write(f"D: {answer_d}\n")
             file.write(f"Correct Answer: {correct_answer}\n\n")
 
-    # after saving, clear all fields for the next question
-    self.question_entry.delete("1.0", tk.END)
-    self.answer_a_entry.delete(0, tk.END)
-    self.answer_b_entry.delete(0, tk.END)
-    self.answer_c_entry.delete(0, tk.END)
-    self.answer_d_entry.delete(0, tk.END)
+        # after saving, clear all fields for the next question
+        self.question_entry.delete("1.0", tk.END)
+        self.answer_a_entry.delete(0, tk.END)
+        self.answer_b_entry.delete(0, tk.END)
+        self.answer_c_entry.delete(0, tk.END)
+        self.answer_d_entry.delete(0, tk.END)
 
-    # display success message
         # after saving, display a success message to the user
+        messagebox.showinfo("Success!", "Question saved successfully!")
+
+    else:
+        messagebox.showerror("Error", "Please fill all fields and ensure the correct answer is one of a, b, c, or d.")
 
 # third is exit program
     # this will close the program when the user clicks the exit button
