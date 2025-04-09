@@ -3,8 +3,21 @@
 # and save it to a file the user can also load an existing quiz file 
 
 # first is initialize the GUI
-    # create a window with fields for:
+import tkinter as tk
+from tkinter import messagebox 
+
+# create a window with fields
+class QuizCreator:
+    def __init__(self):
+        self.window = tk.Tk()
+        self.window.title("Quiz Creator 6969")
+    
         # question
+        self.question_label = tk.Label(self.window, text="Question: ")
+        self.question_label.pack()
+        self.question_entry = tk.Text(self.window, height=5, width=50)
+        self.question_entry.pack()
+
         # answer A
         # answer B
         # answer C
