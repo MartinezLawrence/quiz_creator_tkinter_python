@@ -87,11 +87,16 @@ class QuizCreator:
             self.answer_d_entry.delete(0, tk.END)
             self.correct_answer_entry.delete(0, tk.END)
  
-     # display success message
-         # after saving, display a success message to the user
- 
- # third is exit program
-     # this will close the program when the user clicks the exit button
- 
- # fourth is the main loop
-     # this will run the program and keep it open until the user exits
+            # after saving, display a success message to the user
+            messagebox.showinfo("Success!", "Question saved successfully!")
+        else:
+            messagebox.showerror("Error!", "Please fill out all fields correctly.")
+
+    # this starts tkinter's event loop
+    def run(self):    
+        self.window.mainloop()
+     
+ # this will run the program and keep it open until the user exits
+if __name__ == "__main__":
+    quiz_creator = QuizCreator()
+    quiz_creator.run()
