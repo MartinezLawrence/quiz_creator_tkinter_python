@@ -60,7 +60,7 @@ class QuizCreator:
     # this is where input validation occurs
     # check if all fields are filled out
     def save_question(self):
-        qusetion = self.question_entry.get("1.0", tk.END).strip()
+        question = self.question_entry.get("1.0", tk.END).strip()
         answer_a = self.answer_a_entry.get()
         answer_b = self.answer_b_entry.get()
         answer_c = self.answer_c_entry.get()
