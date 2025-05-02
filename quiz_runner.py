@@ -38,3 +38,12 @@
     # append each question and its options to questions_list
     # return questions_list
  
+# create a function to display the current question and options
+    # display the question and options in the window from the questions_list
+    # show the mupltiple choice options for the current question
+    # track if the user selects an option
+
+# if the user clicks next or submit button
+    # check if an answer is selected
+    # if not selected then display an error message and return
+    # otherwise, save the selected answer to user_answers_list
