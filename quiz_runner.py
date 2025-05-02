@@ -19,6 +19,22 @@
 # SET user_answers_list to an empty list
 
 # FUNCTION initialize_quiz()
-# get the users name from the entry box
-# if user name is empty then display an error message and return
+    # get the users name from the entry box
+    # if user name is empty then display an error message and return
+
+    # load quiz questions from file 
+    # if questions list is empty then display an error message and return
+
+    # remove name input and start button from window
+    # hide name label and start button
+
+    # display the first question and options
+
+# FUNCTION load questions
+    # try to open the quiz_questions.txt file for reading
+    # if file not found then display an error message and return
+    # extract questions and options from the file
+    # extract correct answers from the file
+    # append each question and its options to questions_list
+    # return questions_list
  
