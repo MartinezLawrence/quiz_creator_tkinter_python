@@ -1,7 +1,21 @@
-Question: sddsftseradsxfds
-A: saddfggsadfgfd
-B: sdddffhrerads
-C: ddfgtreads
-D: ddfresdxcgd
+Question: what is the value of acceleration due to gravity
+A: 100m/s²
+B: 9.8m/s²
+C: 10m/s²
+D: 9.7m/s²
+Correct Answer: b
+
+Question: how many eyes does a caterpillar have
+A: 12 eyes
+B: 10 eyes
+C: 40 eyes
+D: 18eyes
 Correct Answer: a
+
+Question: what is the meaning of OOP
+A: oplan oranggutan police
+B: orange oval plastic
+C: object oriented programming
+D: onegaishimasu onii-chan puri puri
+Correct Answer: c
 

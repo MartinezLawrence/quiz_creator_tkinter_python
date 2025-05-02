@@ -55,7 +55,6 @@ class QuizCreator:
         # exit button
         self.exit_button = tk.Button(self.window, text="Exit", command=self.window.destroy)
         self.exit_button.pack()
- 
 
     # this is where input validation occurs
     # check if all fields are filled out
