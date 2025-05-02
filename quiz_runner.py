@@ -47,3 +47,14 @@
     # check if an answer is selected
     # if not selected then display an error message and return
     # otherwise, save the selected answer to user_answers_list
+
+# if there are more questions in the list
+    # show the next question and options
+    # repeat the process until all questions are answered
+
+# if the last question is answered and the user clicks submit
+    # calculate the score based on the correct answers
+    # save the user name and their answers and their score to a file
+    # display the score and a message to the user
+    # close the quiz window
+
