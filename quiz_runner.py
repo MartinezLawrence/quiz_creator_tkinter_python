@@ -19,12 +19,11 @@ class QuizRunner:
         self.start_btn = tk.Button(self.window, text="Start Quiz", command=self.initialize_quiz)
         self.start_btn.pack(pady=20)    # display a button to start quiz
         
-
         # define variable to hold quiz data and state
-        # SET questions_list to an empty list
-        # SET current_question_index to 0
-        # SET score to 0
-        # SET user_answers_list to an empty list
+        self.questions_list = []    # SET questions_list to an empty list
+        self.current_question = 0   # SET current_question_index to 0
+        self.score = 0              # SET score to 0
+        self.user_answers = []      # SET user_answers_list to an empty list
 
 # FUNCTION initialize_quiz()
     # get the users name from the entry box
