@@ -20,7 +20,7 @@ class QuizRunner:
         self.start_btn.pack(pady=20)    # display a button to start quiz
         
         # define variable to hold quiz data and state
-        self.questions_list = []    # SET questions_list to an empty list
+        self.questions = []         # SET questions to an empty list
         self.current_question = 0   # SET current_question_index to 0
         self.score = 0              # SET score to 0
         self.user_answers = []      # SET user_answers_list to an empty list
@@ -118,10 +118,26 @@ class QuizRunner:
         self.current_question += 1  # move to the next question
         self.display_question()     # display the next question
 
-# if there are more questions in the list
-    # show the next question and options
-    # repeat the process until all questions are answered
+    # display results
+    def show_results(self):
+        self.user_answers.append(self.answer_var.get())
+        self.score = sum(1 for i, answer in enumerate(self.questions) if self.user_answers[i] == answer['correct'])
 
+        # save results
+        with open("quiz_results.txt", "a") as f:
+            f.write(f"Name: {self.user_name}\n")
+            f.write(f"Score: {self.score}/{len(self.questions)}\n")
+            for i, answer in enumerate(self.questions):
+                f.write(f"Q{i+1}: {answer['question']}\n")
+                f.write(f"Your Answer: {self.user_answers[i].upper()}\n")
+                f.write(f"Correct Answer: {answer['correct'].upper()}\n\n")
+                f.write("-"*50 + "\n")
+
+        # display the score and a message to the user
+        messagebox.showinfo("Quiz Completed!", f"Your score is {self.score}/{len(self.questions)}")
+        self.window.destroy()
+        # close the quiz window
+            
 # if the last question is answered and the user clicks submit
     # calculate the score based on the correct answers
     # save the user name and their answers and their score to a file
