@@ -67,9 +67,12 @@ class QuizRunner:
         # if questions list is empty then display an error message and return
 
     # remove name input and start button from window
-    # hide name label and start button
+    self.name_label.pack_forget()  # hide name label
+    self.name_entry.pack_forget()  # hide name entry    
+    self.start_btn.pack_forget()  # hide start button
 
     # display the first question and options
+    self.display_question()
 
 # FUNCTION load questions
     # try to open the quiz_questions.txt file for reading
