@@ -94,11 +94,29 @@ class QuizRunner:
             rb = tk.Radiobutton(self.q_frame, text=f"{option.upper()}: {answers[option]}" variable=self.answer_var, value=option, wraplength=400, justify='left')
             rb.pack(anchor='w', pady=5)  # pack the radio button to the left
 
+        # navigation buttons for next and submit
+        self.nav_frame = tk.Frame(self.window)
+        self.nav_frame.pack(pady=10)
 
-# if the user clicks next or submit button
-    # check if an answer is selected
-    # if not selected then display an error message and return
-    # otherwise, save the selected answer to user_answers_list
+        if self.current_question < len(self.questions_list) - 1:
+            next_btn = tk.Button(self.nav_frame, text="Next", command=self.next_question)
+            next_btn.pack(side='right', padx=10)
+        else:
+            submit_btn = tk.Button(self.nav_frame, text="Submit", command=self.show_results)
+            submit_btn.pack(side='right', padx=10)
+
+    def next_question(self):
+        # check if an answer is selected
+        if not self.answer_var.get():
+            messagebox.showerror("Error!", "Please select an answer!")
+            return
+
+        self.user_answers.append(self.answer_var.get())
+        self.answer_var.set(None)   # reset the answer variable
+        self.q_frame.destroy()      # remove the question frame
+        self.nav_frame.destroy()    # remove the navigation frame
+        self.current_question += 1  # move to the next question
+        self.display_question()     # display the next question
 
 # if there are more questions in the list
     # show the next question and options
