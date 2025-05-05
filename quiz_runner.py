@@ -12,7 +12,7 @@ class QuizRunner:
 
         # create an input for users to enter their name
         self.name_label = tk.Label(self.window, text="Enter your name:")
-        self.name-label.pack(pady=10)
+        self.name_label.pack(pady=10)
         self.name_entry = tk.Entry(self.window, width=40)
         self.name_entry.pack(pady=5)
 
@@ -36,7 +36,7 @@ class QuizRunner:
                         continue
                     lines = [line.strip() for line in block.split("\n") if line.strip()]
                     question_data = {
-                        'question': lines[0],replace("Question: ", ""),
+                        'question': lines[0].replace("Question: ", ""),
                         'answers': {
                             'A': lines[1].replace("A: ", ""),
                             'B': lines[2].replace("B: ", ""),
@@ -49,7 +49,7 @@ class QuizRunner:
 
         # if questions list is empty then display an error message and exit           
         except FileNotFoundError:
-            messagebox.showerror("Error"!, "Quiz questions file not found!")
+            messagebox.showerror("Error!", "Quiz questions file not found!")
             self.window.destroy()
 
     # get the users name from the entry box
@@ -92,7 +92,7 @@ class QuizRunner:
     
         # track if the user selects an option
         for option in ['a', 'b', 'c', 'd']:
-            rb = tk.Radiobutton(self.q_frame, text=f"{option.upper()}: {answers[option]}" variable=self.answer_var, value=option, wraplength=400, justify='left')
+            rb = tk.Radiobutton(self.q_frame, text=f"{option.upper()}: {answers[option]}", variable=self.answer_var, value=option, wraplength=400, justify='left')
             rb.pack(anchor='w', pady=5)  # pack the radio button to the left
 
         # navigation buttons for next and submit
@@ -125,14 +125,14 @@ class QuizRunner:
         self.score = sum(1 for i, answer in enumerate(self.questions) if self.user_answers[i] == answer['correct'])
 
         # save results
-        with open("quiz_results.txt", "a") as f:
-            f.write(f"Name: {self.user_name}\n")
-            f.write(f"Score: {self.score}/{len(self.questions)}\n")
+        with open("quiz_score.txt", "a") as file:
+            file.write(f"Name: {self.user_name}\n")
+            file.write(f"Score: {self.score}/{len(self.questions)}\n")
             for i, answer in enumerate(self.questions):
-                f.write(f"Q{i+1}: {answer['question']}\n")
-                f.write(f"Your Answer: {self.user_answers[i].upper()}\n")
-                f.write(f"Correct Answer: {answer['correct'].upper()}\n\n")
-                f.write("-"*50 + "\n")
+                file.write(f"Q{i+1}: {answer['question']}\n")
+                file.write(f"Your Answer: {self.user_answers[i].upper()}\n")
+                file.write(f"Correct Answer: {answer['correct'].upper()}\n\n")
+                file.write("-"*50 + "\n")
 
         # display the score and a message to the user
         messagebox.showinfo("Quiz Completed!", f"Your score is {self.score}/{len(self.questions)}")
