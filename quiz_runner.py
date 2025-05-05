@@ -45,15 +45,26 @@ class QuizRunner:
                         'correct': lines[5].replace("Correct Answer: ", "").lower()
                     }
                     self.questions_list.append(question_data)
-                    
+
         # if questions list is empty then display an error message and exit           
         except FileNotFoundError:
             messagebox.showerror("Error"!, "Quiz questions file not found!")
             self.window.destroy()
 
     # get the users name from the entry box
-    # if user name is empty then display an error message and return
+    def initialize_quiz(self):
+        user_name = self.name_entry.get().strip()
+        if not self.user_name:
+            messagebox.showerror("Error!", "Please enter your name!")
+            return
+        # if user name is empty then display an error message and return
 
+        self.load_questions()  # load questions from file
+        if not self.questions:
+            messagebox.showerror("Error!", "No questions found!")
+            self.window.destroy()
+            return
+        # if questions list is empty then display an error message and return
 
 
     # remove name input and start button from window
