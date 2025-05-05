@@ -66,7 +66,6 @@ class QuizRunner:
             return
         # if questions list is empty then display an error message and return
 
-
     # remove name input and start button from window
     # hide name label and start button
 
