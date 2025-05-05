@@ -1,4 +1,5 @@
 # Quiz Runner
+# This code is a simple quiz application that allows users to take a quiz, select answers, and view their results.
 
 import tkinter as tk
 from tkinter import messagebox
@@ -138,10 +139,12 @@ class QuizRunner:
         self.window.destroy()
         # close the quiz window
             
-# if the last question is answered and the user clicks submit
-    # calculate the score based on the correct answers
-    # save the user name and their answers and their score to a file
-    # display the score and a message to the user
-    # close the quiz window
+    def run(self):
+        self.window.mainloop()
 
-# THATS IT FOR THE PSEUDOCODE
+# run the quiz application
+if __name__ == "__main__":  
+    app = QuizRunner()
+    app.run()
+
+# END OF CODE
