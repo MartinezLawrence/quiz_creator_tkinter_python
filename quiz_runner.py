@@ -1,11 +1,20 @@
 # Quiz Runner
 
-# pseudocode for quiz runner
+import tkinter as tk
+from tkinter import messagebox
 
-# initialize the main window and the user interface elements
-# make the title of the program "QuizRunner"
+class QuizRunner:
+    def __init__(self):
+        # initialize the main window
+        self.window = tk.Tk()
+        self.window.title("QuizRunner")
 
 # create an input for users to enter their name
+        self.name_label = tk.Label(self.window, text="Enter your name:")
+        self.name-label.pack(pady=10)
+        self.name_entry = tk.Entry(self.window, width=40)
+        self.name_entry.pack(pady=5)
+
 # display a label "Enter your name:"
 # display an entry box for the user to input their name
 
@@ -58,3 +67,4 @@
     # display the score and a message to the user
     # close the quiz window
 
+# THATS IT FOR THE PSEUDOCODE
