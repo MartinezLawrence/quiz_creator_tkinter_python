@@ -12,9 +12,9 @@ class QuizRunner:
 
         # create an input for users to enter their name
         self.name_label = tk.Label(self.window, text="Enter your name:")
-        self.name_label.pack(pady=10)
-        self.name_entry = tk.Entry(self.window, width=40)
-        self.name_entry.pack(pady=5)
+        self.name_label.pack(pady=20)
+        self.name_entry = tk.Entry(self.window, width=60)
+        self.name_entry.pack(pady=10)
 
         # create start quiz button
         self.start_btn = tk.Button(self.window, text="Start Quiz", command=self.initialize_quiz)
@@ -38,14 +38,14 @@ class QuizRunner:
                     question_data = {
                         'question': lines[0].replace("Question: ", ""),
                         'answers': {
-                            'A': lines[1].replace("A: ", ""),
-                            'B': lines[2].replace("B: ", ""),
-                            'C': lines[3].replace("B: ", ""),
-                            'D': lines[4].replace("B: ", ""),
+                            'a': lines[1].replace("A: ", ""),
+                            'b': lines[2].replace("B: ", ""),
+                            'c': lines[3].replace("C: ", ""),
+                            'd': lines[4].replace("D: ", ""),
                         },
                         'correct': lines[5].replace("Correct Answer: ", "").lower()
                     }
-                    self.questions_list.append(question_data)
+                    self.questions.append(question_data)
 
         # if questions list is empty then display an error message and exit           
         except FileNotFoundError:
@@ -54,7 +54,7 @@ class QuizRunner:
 
     # get the users name from the entry box
     def initialize_quiz(self):
-        user_name = self.name_entry.get().strip()
+        self.user_name = self.name_entry.get().strip()
         if not self.user_name:
             messagebox.showerror("Error!", "Please enter your name!")
             return
@@ -79,27 +79,34 @@ class QuizRunner:
     def display_question(self):
         # make a frame for the question
         self.q_frame = tk.Frame(self.window)
-        self.q_frame.pack(pady=20)
+        self.q_frame.pack(pady=40, padx=100)
 
-        # display the question and options in the window from the questions_list
-        question_text = self.questions_list[self.current_question]['question']
+        # display the question and options in the window from the questions
+        question_text = self.questions[self.current_question]['question']
         self.question_label = tk.Label(self.q_frame, text=question_text, wraplength=500)
-        self.question_label.pack(pady=10)
+        self.question_label.pack(pady=10, padx=10)  
 
         # show the mupltiple choice options for the current question
         self.answer_var = tk.StringVar()  # variable to hold the selected answer
-        answers = self.questions_list[self.current_question]['answers']
+        answers = self.questions[self.current_question]['answers']
     
         # track if the user selects an option
         for option in ['a', 'b', 'c', 'd']:
-            rb = tk.Radiobutton(self.q_frame, text=f"{option.upper()}: {answers[option]}", variable=self.answer_var, value=option, wraplength=400, justify='left')
-            rb.pack(anchor='w', pady=5)  # pack the radio button to the left
+            rb = tk.Radiobutton(
+                self.q_frame, 
+                text=f"{option.upper()}: {answers[option]}", 
+                variable=self.answer_var, 
+                value=option, 
+                wraplength=400, 
+                justify='left'
+            )
+            rb.pack(anchor='w', pady=30)  # pack the radio button to the left
 
         # navigation buttons for next and submit
         self.nav_frame = tk.Frame(self.window)
         self.nav_frame.pack(pady=10)
 
-        if self.current_question < len(self.questions_list) - 1:
+        if self.current_question < len(self.questions) - 1:
             next_btn = tk.Button(self.nav_frame, text="Next", command=self.next_question)
             next_btn.pack(side='right', padx=10)
         else:
@@ -122,7 +129,8 @@ class QuizRunner:
     # display results
     def show_results(self):
         self.user_answers.append(self.answer_var.get())
-        self.score = sum(1 for i, answer in enumerate(self.questions) if self.user_answers[i] == answer['correct'])
+        self.score = sum(1 for i, answer in enumerate(self.questions) 
+                        if self.user_answers[i] == answer['correct'])
 
         # save results
         with open("quiz_score.txt", "a") as file:
@@ -132,12 +140,13 @@ class QuizRunner:
                 file.write(f"Q{i+1}: {answer['question']}\n")
                 file.write(f"Your Answer: {self.user_answers[i].upper()}\n")
                 file.write(f"Correct Answer: {answer['correct'].upper()}\n\n")
-                file.write("-"*50 + "\n")
+            file.write("-"*50 + "\n")
 
         # display the score and a message to the user
-        messagebox.showinfo("Quiz Completed!", f"Your score is {self.score}/{len(self.questions)}")
-        self.window.destroy()
-        # close the quiz window
+        messagebox.showinfo("Results", 
+            f"Thank you {self.user_name}!\nYour score: {self.score}/{len(self.questions)}")
+        self.window.destroy()   # close the window
+
             
     def run(self):
         self.window.mainloop()
