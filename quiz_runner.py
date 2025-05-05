@@ -25,12 +25,36 @@ class QuizRunner:
         self.score = 0              # SET score to 0
         self.user_answers = []      # SET user_answers_list to an empty list
 
-# FUNCTION initialize_quiz()
+    # load quiz questions from file
+    def load_questions(self):
+        try:
+            with open("quiz_questions.txt", "r") as file:
+                content = file.read().split("\n\n")
+                for block in content:
+                    if not block.strip():
+                        continue
+                    lines = [line.strip() for line in block.split("\n") if line.strip()]
+                    question_data = {
+                        'question': lines[0],replace("Question: ", ""),
+                        'answers': {
+                            'A': lines[1].replace("A: ", ""),
+                            'B': lines[2].replace("B: ", ""),
+                            'C': lines[3].replace("B: ", ""),
+                            'D': lines[4].replace("B: ", ""),
+                        },
+                        'correct': lines[5].replace("Correct Answer: ", "").lower()
+                    }
+                    self.questions_list.append(question_data)
+                    
+        # if questions list is empty then display an error message and exit           
+        except FileNotFoundError:
+            messagebox.showerror("Error"!, "Quiz questions file not found!")
+            self.window.destroy()
+
     # get the users name from the entry box
     # if user name is empty then display an error message and return
 
-    # load quiz questions from file 
-    # if questions list is empty then display an error message and return
+
 
     # remove name input and start button from window
     # hide name label and start button
