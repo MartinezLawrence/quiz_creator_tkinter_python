@@ -73,19 +73,27 @@ class QuizRunner:
 
         # display the first question and options
         self.display_question()
-
-# FUNCTION load questions
-    # try to open the quiz_questions.txt file for reading
-    # if file not found then display an error message and return
-    # extract questions and options from the file
-    # extract correct answers from the file
-    # append each question and its options to questions_list
-    # return questions_list
  
-# create a function to display the current question and options
-    # display the question and options in the window from the questions_list
-    # show the mupltiple choice options for the current question
-    # track if the user selects an option
+    # create a function to display the current question and options
+    def display_question(self):
+        # make a frame for the question
+        self.q_frame = tk.Frame(self.window)
+        self.q_frame.pack(pady=20)
+
+        # display the question and options in the window from the questions_list
+        question_text = self.questions_list[self.current_question]['question']
+        self.question_label = tk.Label(self.q_frame, text=question_text, wraplength=500)
+        self.question_label.pack(pady=10)
+
+        # show the mupltiple choice options for the current question
+        self.answer_var = tk.StringVar()  # variable to hold the selected answer
+        answers = self.questions_list[self.current_question]['answers']
+    
+        # track if the user selects an option
+        for option in ['a', 'b', 'c', 'd']:
+            rb = tk.Radiobutton(self.q_frame, text=f"{option.upper()}: {answers[option]}" variable=self.answer_var, value=option, wraplength=400, justify='left')
+            rb.pack(anchor='w', pady=5)  # pack the radio button to the left
+
 
 # if the user clicks next or submit button
     # check if an answer is selected
