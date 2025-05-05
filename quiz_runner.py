@@ -9,23 +9,22 @@ class QuizRunner:
         self.window = tk.Tk()
         self.window.title("QuizRunner")
 
-# create an input for users to enter their name
+        # create an input for users to enter their name
         self.name_label = tk.Label(self.window, text="Enter your name:")
         self.name-label.pack(pady=10)
         self.name_entry = tk.Entry(self.window, width=40)
         self.name_entry.pack(pady=5)
 
-# display a label "Enter your name:"
-# display an entry box for the user to input their name
+        # create start quiz button
+        self.start_btn = tk.Button(self.window, text="Start Quiz", command=self.initialize_quiz)
+        self.start_btn.pack(pady=20)    # display a button to start quiz
+        
 
-# create start quiz button
-# display a button to start quiz
-
-# define variable to hold quiz data and state
-# SET questions_list to an empty list
-# SET current_question_index to 0
-# SET score to 0
-# SET user_answers_list to an empty list
+        # define variable to hold quiz data and state
+        # SET questions_list to an empty list
+        # SET current_question_index to 0
+        # SET score to 0
+        # SET user_answers_list to an empty list
 
 # FUNCTION initialize_quiz()
     # get the users name from the entry box
