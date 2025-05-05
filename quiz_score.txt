@@ -1,0 +1,45 @@
+Name: Lawrence Andrew Martinez
+Score: 3/3
+Q1: what is the value of acceleration due to gravity
+Your Answer: B
+Correct Answer: B
+
+Q2: how many eyes does a caterpillar have
+Your Answer: A
+Correct Answer: A
+
+Q3: what is the meaning of OOP
+Your Answer: C
+Correct Answer: C
+
+--------------------------------------------------
+Name: hatdog
+Score: 0/3
+Q1: what is the value of acceleration due to gravity
+Your Answer: A
+Correct Answer: B
+
+Q2: how many eyes does a caterpillar have
+Your Answer: B
+Correct Answer: A
+
+Q3: what is the meaning of OOP
+Your Answer: D
+Correct Answer: C
+
+--------------------------------------------------
+Name: hatdog
+Score: 2/3
+Q1: what is the value of acceleration due to gravity
+Your Answer: C
+Correct Answer: B
+
+Q2: how many eyes does a caterpillar have
+Your Answer: A
+Correct Answer: A
+
+Q3: what is the meaning of OOP
+Your Answer: C
+Correct Answer: C
+
+--------------------------------------------------

@@ -144,7 +144,7 @@ class QuizRunner:
 
         # display the score and a message to the user
         messagebox.showinfo("Results", 
-            f"Thank you {self.user_name}!\nYour score: {self.score}/{len(self.questions)}")
+            f"Thank you, {self.user_name}!\nYour score: {self.score}/{len(self.questions)}")
         self.window.destroy()   # close the window
 
             
